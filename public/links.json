@@ -1,0 +1,8 @@
+[
+  {
+    "short": "/dbs.relax",
+    "name": "Uni Innsbruck - Relax",
+    "target": "https://dbis-uibk.github.io/relax",
+    "description": "A relational algebra calculator which also contains the Universität schema from the lecture."
+  }
+]

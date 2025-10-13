@@ -1,0 +1,10 @@
+{
+  "name": "elite-se.shorturl",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "http-server -c-1 public"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  }
+}

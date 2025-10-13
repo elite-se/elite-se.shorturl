@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elite-SE: URL Shortener</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+
+<h1>Elite-SE: URL Shortener</h1>
+<p>This page contains a list of urls that are part of the url shortener.</p>
+
+<table id="urls" class="table">
+    <tbody>
+    <tr>
+        <th scope="col">Short</th>
+        <th scope="col">Target</th>
+        <th scope="col">Description</th>
+    </tr>
+    </tbody>
+</table>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+</div>
+
+<script defer>
+  const table = document.querySelector('#urls').querySelector('tbody');
+  const copy = (text) => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text)
+
+      const toast = document.createElement('div');
+      toast.role = 'alert';
+      toast.ariaLive = 'assertive';
+      toast.ariaAtomic = 'true';
+      toast.innerHTML = `
+        <div class="toast-body">
+            <strong class="me-auto text-success">Copied!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            <a href="${text}">${text}</a>
+        </div>
+      `
+
+      document.querySelector('.toast-container').appendChild(toast);
+      new bootstrap.Toast(toast).show();
+    } else {
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.role = 'alert';
+      toast.ariaLive = 'assertive';
+      toast.ariaAtomic = 'true';
+      toast.innerHTML = `
+        <div class="toast-header">
+            <strong class="me-auto text-danger">Copying is not supported by your browser!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Unfortunately, copying is not supported by your browser. Please copy the link manually.
+        </div>
+      `
+
+      document.querySelector('.toast-container').appendChild(toast);
+      new bootstrap.Toast(toast).show();
+    }
+  }
+
+  fetch("links.json")
+      .then(response => response.json())
+      .then(links => links.toSorted((a, b) => (a["short"] ?? "").localeCompare((b["short"] ?? ""))))
+      .then(links => links.forEach(link => {
+        const l_target = link["target"];
+        const l_name = link["name"] ?? link["target"];
+        const l_description = link["description"] ?? "";
+
+        let l_short = link["short"];
+        if (l_short[0] !== "/") l_short = "/" + l_short;
+
+        const l_url = window.location.origin + l_short;
+
+        const row = table.insertRow();
+
+        const short = document.createElement("th");
+        short.innerHTML = l_short ? `<span class='me-2' type="button" onclick="copy('${l_url}')"><i class="bi bi-copy"></i></span> ${l_short}` : "<span class='text-danger'>Missing!</span>";
+        short.scope = "row"
+        row.appendChild(short);
+        new bootstrap.Tooltip(short);
+
+        const target = row.insertCell();
+        target.innerHTML = l_target ? `<a href="${l_target}">${l_name}</a>` : "<span class='text-danger'>Missing!</span>";
+
+        const description = row.insertCell();
+        description.innerText = l_description;
+      }))
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+</html>

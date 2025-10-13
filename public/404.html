@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elite-SE: URL Shortener</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="p-4">
+
+
+<h1>Elite-SE: URL Shortener</h1>
+<p id="status">Loading redirects...</p>
+
+<script defer>
+  const status = document.querySelector('#status');
+  fetch("links.json")
+      .then(response => response.json())
+      .then(links => links.find(link => link["short"] === window.location.pathname))
+      .then(link => {
+        if (!link || !link["target"]) {
+          status.innerHTML = "No redirect found. You can look up your short URL on the <a href='/'>home page</a>.";
+          return;
+        }
+
+        status.innerHTML = `Redirecting to <a href="${link["target"]}">${link["target"]}</a>...`;
+        window.location.replace(link["target"]);
+      })
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
