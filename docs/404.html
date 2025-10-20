@@ -15,7 +15,7 @@
 
 <script defer>
   const status = document.querySelector('#status');
-  const short = window.location.pathname.split("/").findLast(x => x);
+  const short = "/" + window.location.pathname.split("/").findLast(x => x);
   fetch("links.json")
       .then(response => response.json())
       .then(links => links.find(link => link["short"] === short))
