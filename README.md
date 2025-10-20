@@ -1,7 +1,7 @@
 # Elite-SE: URL Shortener
 This url shortener contains a list of arrays that are important for the program.
 
-It is available as a GitHub Pages at https://elite-se.github.io/elite-se.shorturl/.
+It is available as a GitHub Pages at https://elite-se.github.io/elite-se.shorturl/ and https://short.elite-se.de.
 
 ## 🏗️ Architecture
 
