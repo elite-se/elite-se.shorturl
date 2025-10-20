@@ -4,5 +4,47 @@
     "name": "Uni Innsbruck - Relax",
     "target": "https://dbis-uibk.github.io/relax",
     "description": "A relational algebra calculator which also contains the Universität schema from the lecture."
+  },
+  {
+    "short": "/uml",
+    "name": "UML: draw.io",
+    "target": "https://draw-io",
+    "description": "A website to create all sorts of diagrams"
+  },
+  {
+    "short": "/uml.apollon",
+    "name": "UML: TUM - Apollon",
+    "target": "https://apollon.ase.in.tum.de",
+    "description": "A rather limited tool to create UML diagrams."
+  },
+  {
+    "short": "/tum.rooms".
+    "name": "TUM: Room Management",
+    "target": "https://www.devapp.it.tum.de/iris/app",
+    "description": "You can see the availabilty of rooms at TUM and reserver them."
+  },
+  {
+    "short": "/tum.campus",
+    "name": "TUM: Campus",
+    "target": "https://campus.tum.de",
+    "description": "Central portal at TUM"
+  },
+  {
+    "short": "/unia.campus".
+    "name": "Uni Augsburg: Digicampus",
+    "target": "https://digicampus.uni-augsburg.de",
+    "description": "The learning management system at the University of Augsburg"
+  },
+  {
+    "short": "/unia.exam",
+    "name": "Uni Augsburg: STUDIS",
+    "target": "https://studiswebstud.zv.uni-augsburg.de/FN2AUTH/FN2AuthServlet?op=Login&nologout=true",
+    "descriptions": "The management system for grades and exams at the University of Augsburg"
+  },
+  {
+    "short": "/lmu.campus",
+    "name": "LMU: Campus Portal",
+    "target": "https://www.portal.lmu.de",
+    "description": "The central poartal to access services at LMU"
   }
 ]
