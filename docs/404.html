@@ -18,7 +18,7 @@
   const short = window.location.pathname.split("/").findLast(x => x);
   fetch("links.json")
       .then(response => response.json())
-      .then(links => links.find(link => link["short"] === window.location.pathname))
+      .then(links => links.find(link => link["short"] === short))
       .then(link => {
         if (!link || !link["target"]) {
           status.innerHTML = "No redirect found. You can look up your short URL on the <a href='/'>home page</a>.";
