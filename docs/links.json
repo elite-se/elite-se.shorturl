@@ -1,7 +1,7 @@
 [
   {
     "short": "/dbs.relax",
-    "name": "Uni Innsbruck - Relax",
+    "name": "DBS: Uni Innsbruck - Relax",
     "target": "https://dbis-uibk.github.io/relax",
     "description": "A relational algebra calculator which also contains the Universität schema from the lecture."
   },
@@ -39,7 +39,7 @@
     "short": "/unia.exam",
     "name": "Uni Augsburg: STUDIS",
     "target": "https://studiswebstud.zv.uni-augsburg.de/FN2AUTH/FN2AuthServlet?op=Login&nologout=true",
-    "descriptions": "The management system for grades and exams at the University of Augsburg"
+    "description": "The management system for grades and exams at the University of Augsburg"
   },
   {
     "short": "/lmu.campus",
