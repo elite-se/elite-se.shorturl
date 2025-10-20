@@ -25,7 +25,7 @@
 </table>
 
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
-
+    <!-- This is where toasts will go -->
 </div>
 
 <script defer>
@@ -80,9 +80,9 @@
         const l_description = link["description"] ?? "";
 
         let l_short = link["short"];
-        if (l_short[0] !== "/") l_short = "/" + l_short;
+        if (l_short[0] === "/") l_short = l_short.substring(1);
 
-        const l_url = window.location.origin + l_short;
+        const l_url = window.location.origin + window.location.pathname + l_short;
 
         const row = table.insertRow();
 
