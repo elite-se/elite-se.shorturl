@@ -18,7 +18,7 @@
     "description": "A rather limited tool to create UML diagrams."
   },
   {
-    "short": "/tum.rooms".
+    "short": "/tum.rooms",
     "name": "TUM: Room Management",
     "target": "https://www.devapp.it.tum.de/iris/app",
     "description": "You can see the availabilty of rooms at TUM and reserver them."
@@ -30,7 +30,7 @@
     "description": "Central portal at TUM"
   },
   {
-    "short": "/unia.campus".
+    "short": "/unia.campus",
     "name": "Uni Augsburg: Digicampus",
     "target": "https://digicampus.uni-augsburg.de",
     "description": "The learning management system at the University of Augsburg"
